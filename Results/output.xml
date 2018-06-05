@@ -1,0 +1,1132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180605 11:32:45.366" generator="Robot 3.0.4 (Python 2.7.13 on win32)">
+<suite source="C:\Users\SOAIS\PycharmProjects\Demo\tests\ExpenseCompleteDemo.robot" id="s1" name="ExpenseCompleteDemo">
+<test id="s1-t1" name="Should be able to create an Expense Report">
+<kw type="setup" name="Begin Web Test" library="CommonWeb">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>${BROWESR}</arg>
+</arguments>
+<msg timestamp="20180605 11:32:45.788" level="INFO">Opening browser 'chrome' to base url 'https://efrx-test.login.ap4.oraclecloud.com/oam/server/obrareq.cgi?encquery%3DjlfWqDFCxOJZYGdFz7rcdprX8BbkUrjSGulfyzd7253LQrrO9JucGh8g1J6viR3Bi5qoJ5eQQM3nzkdiVgA0GY4o0w38jOwN4D6hKc10VCStm8QSLKxkl%2FEet%2BIIJ6TWlA4NRXVkT9LaXo3TCZEl5weqpaPdYxUI4Alj5Z4POvjUVypjAf1G0Woj2VMy7zXpFU3qINTwpmjO7wQaZpp7uCQYC0m3vcXIGT6AxmaDAKRd2NHX4tQtrCSFtWkvqr94%2F9Y1K5DTO5wrcqTKSExal7nM9qglOV3acm4W7Nr7q0qe8MJaQ9Q48QGxd6QBi%2BTnQUfuosCB0hlj8QzXebtWWLU99wCxzoXPGyziJS1xJl67APK6lwH4oYdrbyO0q9roflg086XVbTWxFbFj7LF8j2vA6%2F%2F%2F%2B56nUBC3Vyzy3eJkuEUTSvWqX8VWyX975zZSi3%2Bp0NwJzfo4i234HNT4RapjvxVKNMCjaxNxYRZR2GuEnBFpbMQVWeWDBWUxVnYzucmlGPN2IhO3XkBc9OEgIQ%3D%3D%20agentid%3DOraFusionApp_11AG%20ver%3D1%20crmethod%3D2&amp;ECID-Context=1.005RStPt96D4AxSLmEc9yZ0001cV0003if%3BkXhgv0ZCLILIIV8QjTPPGHRP_V9O%5EMPGpKSQ_UOTdJPOoPRRiG'</msg>
+<status status="PASS" endtime="20180605 11:32:57.745" starttime="20180605 11:32:45.787"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180605 11:32:58.902" starttime="20180605 11:32:57.746"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:32:58.902" starttime="20180605 11:32:45.787"></status>
+</kw>
+<kw name="Get CSV Data" library="CommonWeb">
+<arguments>
+<arg>${DATA_PATH}</arg>
+</arguments>
+<assign>
+<var>@{csvData}</var>
+</assign>
+<kw name="Read Csv File" library="jutil">
+<arguments>
+<arg>${filepath}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20180605 11:32:58.905" level="INFO">${data} = [['Jitendra Kumar Gour', 'Soa@4321']]</msg>
+<status status="PASS" endtime="20180605 11:32:58.905" starttime="20180605 11:32:58.904"></status>
+</kw>
+<msg timestamp="20180605 11:32:58.905" level="INFO">@{csvData} = [ ['Jitendra Kumar Gour', 'Soa@4321'] ]</msg>
+<status status="PASS" endtime="20180605 11:32:58.905" starttime="20180605 11:32:58.903"></status>
+</kw>
+<kw type="for" name="${singledata} IN [ @{csvData} ]">
+<kw type="foritem" name="${singledata} = ['Jitendra Kumar Gour', 'Soa@4321']">
+<kw name="HCM Login" library="CommonWeb">
+<arguments>
+<arg>${singledata}</arg>
+</arguments>
+<kw name="Enter URL" library="CommonWeb">
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<msg timestamp="20180605 11:32:58.908" level="INFO">Opening url 'https://efrx-test.login.ap4.oraclecloud.com/oam/server/obrareq.cgi?encquery%3DjlfWqDFCxOJZYGdFz7rcdprX8BbkUrjSGulfyzd7253LQrrO9JucGh8g1J6viR3Bi5qoJ5eQQM3nzkdiVgA0GY4o0w38jOwN4D6hKc10VCStm8QSLKxkl%2FEet%2BIIJ6TWlA4NRXVkT9LaXo3TCZEl5weqpaPdYxUI4Alj5Z4POvjUVypjAf1G0Woj2VMy7zXpFU3qINTwpmjO7wQaZpp7uCQYC0m3vcXIGT6AxmaDAKRd2NHX4tQtrCSFtWkvqr94%2F9Y1K5DTO5wrcqTKSExal7nM9qglOV3acm4W7Nr7q0qe8MJaQ9Q48QGxd6QBi%2BTnQUfuosCB0hlj8QzXebtWWLU99wCxzoXPGyziJS1xJl67APK6lwH4oYdrbyO0q9roflg086XVbTWxFbFj7LF8j2vA6%2F%2F%2F%2B56nUBC3Vyzy3eJkuEUTSvWqX8VWyX975zZSi3%2Bp0NwJzfo4i234HNT4RapjvxVKNMCjaxNxYRZR2GuEnBFpbMQVWeWDBWUxVnYzucmlGPN2IhO3XkBc9OEgIQ%3D%3D%20agentid%3DOraFusionApp_11AG%20ver%3D1%20crmethod%3D2&amp;ECID-Context=1.005RStPt96D4AxSLmEc9yZ0001cV0003if%3BkXhgv0ZCLILIIV8QjTPPGHRP_V9O%5EMPGpKSQ_UOTdJPOoPRRiG'</msg>
+<status status="PASS" endtime="20180605 11:32:59.580" starttime="20180605 11:32:58.907"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:32:59.580" starttime="20180605 11:32:58.907"></status>
+</kw>
+<kw name="Enter UserID" library="CommonWeb">
+<arguments>
+<arg>${data[0]}</arg>
+</arguments>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=userid</arg>
+<arg>${userid}</arg>
+</arguments>
+<msg timestamp="20180605 11:32:59.582" level="INFO">Typing text 'Jitendra Kumar Gour' into text field 'id=userid'</msg>
+<status status="PASS" endtime="20180605 11:32:59.850" starttime="20180605 11:32:59.582"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:32:59.850" starttime="20180605 11:32:59.581"></status>
+</kw>
+<kw name="Enter Password" library="CommonWeb">
+<arguments>
+<arg>${data[1]}</arg>
+</arguments>
+<kw name="Input Password" library="Selenium2Library">
+<doc>Types the given password into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=password</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20180605 11:32:59.852" level="INFO">Typing password into text field 'id=password'</msg>
+<status status="PASS" endtime="20180605 11:33:00.021" starttime="20180605 11:32:59.852"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:33:00.021" starttime="20180605 11:32:59.851"></status>
+</kw>
+<kw name="Take Screenshot" library="CommonWeb">
+<arguments>
+<arg>HCMLogin</arg>
+</arguments>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20180605 11:33:02.023" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20180605 11:33:02.023" starttime="20180605 11:33:00.022"></status>
+</kw>
+<kw name="Fetch Current Date" library="CommonWeb">
+<arguments>
+<arg>-%m-%d-%Y-%H-%M-%S</arg>
+</arguments>
+<assign>
+<var>${x}</var>
+</assign>
+<kw name="Get Current Date" library="DateTime">
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<arguments>
+<arg>result_format=${format}</arg>
+</arguments>
+<assign>
+<var>${x}</var>
+</assign>
+<msg timestamp="20180605 11:33:02.026" level="INFO">${x} = -06-05-2018-11-33-02</msg>
+<status status="PASS" endtime="20180605 11:33:02.027" starttime="20180605 11:33:02.025"></status>
+</kw>
+<msg timestamp="20180605 11:33:02.027" level="INFO">${x} = -06-05-2018-11-33-02</msg>
+<status status="PASS" endtime="20180605 11:33:02.028" starttime="20180605 11:33:02.024"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${fname}</arg>
+<arg>${x}</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20180605 11:33:02.030" level="INFO">${name} = HCMLogin -06-05-2018-11-33-02</msg>
+<status status="PASS" endtime="20180605 11:33:02.030" starttime="20180605 11:33:02.028"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${name}</arg>
+<arg>.png</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20180605 11:33:02.031" level="INFO">${name} = HCMLogin -06-05-2018-11-33-02 .png</msg>
+<status status="PASS" endtime="20180605 11:33:02.032" starttime="20180605 11:33:02.030"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+<arg>filename=${OUTPUTDIR}/${name}</arg>
+</arguments>
+<msg timestamp="20180605 11:33:02.399" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="HCMLogin%20-06-05-2018-11-33-02%20.png"&gt;&lt;img src="HCMLogin%20-06-05-2018-11-33-02%20.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180605 11:33:02.400" starttime="20180605 11:33:02.032"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:33:02.400" starttime="20180605 11:33:00.022"></status>
+</kw>
+<kw name="Click Signin Button" library="CommonWeb">
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>id=btnActive</arg>
+</arguments>
+<msg timestamp="20180605 11:33:02.401" level="INFO">Clicking button 'id=btnActive'.</msg>
+<status status="PASS" endtime="20180605 11:33:10.088" starttime="20180605 11:33:02.401"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:33:10.088" starttime="20180605 11:33:02.400"></status>
+</kw>
+<kw name="Wait For Hamburger Menu" library="CommonWeb">
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=pt1:_UISmmLink</arg>
+</arguments>
+<status status="PASS" endtime="20180605 11:33:10.142" starttime="20180605 11:33:10.089"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:33:10.143" starttime="20180605 11:33:10.088"></status>
+</kw>
+<kw name="Take Screenshot" library="CommonWeb">
+<arguments>
+<arg>HCMDashboard</arg>
+</arguments>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20180605 11:33:12.145" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20180605 11:33:12.145" starttime="20180605 11:33:10.144"></status>
+</kw>
+<kw name="Fetch Current Date" library="CommonWeb">
+<arguments>
+<arg>-%m-%d-%Y-%H-%M-%S</arg>
+</arguments>
+<assign>
+<var>${x}</var>
+</assign>
+<kw name="Get Current Date" library="DateTime">
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<arguments>
+<arg>result_format=${format}</arg>
+</arguments>
+<assign>
+<var>${x}</var>
+</assign>
+<msg timestamp="20180605 11:33:12.149" level="INFO">${x} = -06-05-2018-11-33-12</msg>
+<status status="PASS" endtime="20180605 11:33:12.149" starttime="20180605 11:33:12.147"></status>
+</kw>
+<msg timestamp="20180605 11:33:12.150" level="INFO">${x} = -06-05-2018-11-33-12</msg>
+<status status="PASS" endtime="20180605 11:33:12.150" starttime="20180605 11:33:12.146"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${fname}</arg>
+<arg>${x}</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20180605 11:33:12.152" level="INFO">${name} = HCMDashboard -06-05-2018-11-33-12</msg>
+<status status="PASS" endtime="20180605 11:33:12.152" starttime="20180605 11:33:12.150"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${name}</arg>
+<arg>.png</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20180605 11:33:12.153" level="INFO">${name} = HCMDashboard -06-05-2018-11-33-12 .png</msg>
+<status status="PASS" endtime="20180605 11:33:12.154" starttime="20180605 11:33:12.152"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+<arg>filename=${OUTPUTDIR}/${name}</arg>
+</arguments>
+<msg timestamp="20180605 11:33:12.504" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="HCMDashboard%20-06-05-2018-11-33-12%20.png"&gt;&lt;img src="HCMDashboard%20-06-05-2018-11-33-12%20.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180605 11:33:12.504" starttime="20180605 11:33:12.154"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:33:12.504" starttime="20180605 11:33:10.143"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:33:12.504" starttime="20180605 11:32:58.907"></status>
+</kw>
+<kw name="Create An Item" library="CreateItemApp">
+<kw name="Click Hamburger Menu" library="ExpensePage">
+<kw name="Wait Dynamically For An Element And Then Click" library="CommonWeb">
+<arguments>
+<arg>id=pt1:_UISmmLink</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>15</arg>
+</arguments>
+<status status="PASS" endtime="20180605 11:33:12.519" starttime="20180605 11:33:12.506"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<msg timestamp="20180605 11:33:12.520" level="INFO">Clicking element 'id=pt1:_UISmmLink'.</msg>
+<status status="PASS" endtime="20180605 11:33:12.675" starttime="20180605 11:33:12.519"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:33:12.676" starttime="20180605 11:33:12.506"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:33:12.676" starttime="20180605 11:33:12.505"></status>
+</kw>
+<kw name="Click Menu Item Expenses" library="ExpensePage">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>4S</arg>
+</arguments>
+<msg timestamp="20180605 11:33:16.677" level="INFO">Slept 4 seconds</msg>
+<status status="PASS" endtime="20180605 11:33:16.677" starttime="20180605 11:33:12.677"></status>
+</kw>
+<kw name="Wait Dynamically For An Element And Then Click" library="CommonWeb">
+<arguments>
+<arg>xpath=//*[@id="pt1:nv_itemNode_my_information_expenses"]</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>15</arg>
+</arguments>
+<status status="PASS" endtime="20180605 11:33:16.729" starttime="20180605 11:33:16.679"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<msg timestamp="20180605 11:33:16.730" level="INFO">Clicking element 'xpath=//*[@id="pt1:nv_itemNode_my_information_expenses"]'.</msg>
+<status status="PASS" endtime="20180605 11:33:26.524" starttime="20180605 11:33:16.729"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:33:26.524" starttime="20180605 11:33:16.677"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:33:26.524" starttime="20180605 11:33:12.676"></status>
+</kw>
+<kw name="Click On Plus Icon" library="ExpensePage">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20180605 11:33:29.525" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20180605 11:33:29.525" starttime="20180605 11:33:26.525"></status>
+</kw>
+<kw name="Wait Dynamically For An Element And Then Click" library="CommonWeb">
+<arguments>
+<arg>xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:_FOTsr1:0:pt0:pt1:r1:0:ITPdtl:0:t2::oc"]/table/tbody/tr/td[2]</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>15</arg>
+</arguments>
+<status status="PASS" endtime="20180605 11:33:29.584" starttime="20180605 11:33:29.527"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<msg timestamp="20180605 11:33:29.585" level="INFO">Clicking element 'xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:_FOTsr1:0:pt0:pt1:r1:0:ITPdtl:0:t2::oc"]/table/tbody/tr/td[2]'.</msg>
+<status status="PASS" endtime="20180605 11:33:29.764" starttime="20180605 11:33:29.585"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:33:29.764" starttime="20180605 11:33:29.526"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>4s</arg>
+</arguments>
+<msg timestamp="20180605 11:33:33.764" level="INFO">Slept 4 seconds</msg>
+<status status="PASS" endtime="20180605 11:33:33.764" starttime="20180605 11:33:29.764"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:33:33.764" starttime="20180605 11:33:26.524"></status>
+</kw>
+<kw name="Enter Item Date" library="ExpensePage">
+<kw name="Fetch Current Date" library="CommonWeb">
+<arguments>
+<arg>%m/%d/%Y</arg>
+</arguments>
+<assign>
+<var>${sys_date}</var>
+</assign>
+<kw name="Get Current Date" library="DateTime">
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<arguments>
+<arg>result_format=${format}</arg>
+</arguments>
+<assign>
+<var>${x}</var>
+</assign>
+<msg timestamp="20180605 11:33:33.766" level="INFO">${x} = 06/05/2018</msg>
+<status status="PASS" endtime="20180605 11:33:33.766" starttime="20180605 11:33:33.766"></status>
+</kw>
+<msg timestamp="20180605 11:33:33.767" level="INFO">${sys_date} = 06/05/2018</msg>
+<status status="PASS" endtime="20180605 11:33:33.767" starttime="20180605 11:33:33.765"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:1:AP1:StartDate::content"]</arg>
+</arguments>
+<status status="PASS" endtime="20180605 11:33:33.913" starttime="20180605 11:33:33.767"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:1:AP1:StartDate::content"]</arg>
+<arg>${sys_date}</arg>
+</arguments>
+<msg timestamp="20180605 11:33:33.914" level="INFO">Typing text '06/05/2018' into text field 'xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:1:AP1:StartDate::content"]'</msg>
+<status status="PASS" endtime="20180605 11:33:34.189" starttime="20180605 11:33:33.913"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:33:34.189" starttime="20180605 11:33:33.765"></status>
+</kw>
+<kw name="Pick Template From Dropdown" library="ExpensePage">
+<kw name="Select From List By Label" library="Selenium2Library">
+<doc>Selects `*labels` from list identified by `locator`</doc>
+<arguments>
+<arg>xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:1:AP1:ExpenseTemplateId::content"]</arg>
+<arg>Rent and Regular charges</arg>
+</arguments>
+<msg timestamp="20180605 11:33:34.191" level="INFO">Selecting label(s) 'Rent and Regular charges' from list 'xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:1:AP1:ExpenseTemplateId::content"]'.</msg>
+<status status="PASS" endtime="20180605 11:33:34.307" starttime="20180605 11:33:34.191"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>6s</arg>
+</arguments>
+<msg timestamp="20180605 11:33:40.308" level="INFO">Slept 6 seconds</msg>
+<status status="PASS" endtime="20180605 11:33:40.308" starttime="20180605 11:33:34.307"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:33:40.308" starttime="20180605 11:33:34.190"></status>
+</kw>
+<kw name="Pick Type From Dropdown" library="ExpensePage">
+<kw name="Select From List By Label" library="Selenium2Library">
+<doc>Selects `*labels` from list identified by `locator`</doc>
+<arguments>
+<arg>xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:1:AP1:ExpenseTypeId::content"]</arg>
+<arg>Internet Charges</arg>
+</arguments>
+<msg timestamp="20180605 11:33:40.310" level="INFO">Selecting label(s) 'Internet Charges' from list 'xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:1:AP1:ExpenseTypeId::content"]'.</msg>
+<status status="PASS" endtime="20180605 11:33:40.590" starttime="20180605 11:33:40.310"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>6s</arg>
+</arguments>
+<msg timestamp="20180605 11:33:46.592" level="INFO">Slept 6 seconds</msg>
+<status status="PASS" endtime="20180605 11:33:46.592" starttime="20180605 11:33:40.591"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:33:46.592" starttime="20180605 11:33:40.309"></status>
+</kw>
+<kw name="Enter Amount" library="ExpensePage">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:1:AP1:ReceiptAmount::content"]</arg>
+<arg>1300</arg>
+</arguments>
+<msg timestamp="20180605 11:33:46.594" level="INFO">Typing text '1300' into text field 'xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:1:AP1:ReceiptAmount::content"]'</msg>
+<status status="PASS" endtime="20180605 11:33:46.832" starttime="20180605 11:33:46.594"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>6s</arg>
+</arguments>
+<msg timestamp="20180605 11:33:52.833" level="INFO">Slept 6 seconds</msg>
+<status status="PASS" endtime="20180605 11:33:52.833" starttime="20180605 11:33:46.832"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:33:52.833" starttime="20180605 11:33:46.593"></status>
+</kw>
+<kw name="Enter Number Of Days" library="ExpensePage">
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:1:AP1:NumberOfDays::content"]</arg>
+<arg>10s</arg>
+</arguments>
+<status status="PASS" endtime="20180605 11:33:52.887" starttime="20180605 11:33:52.835"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:1:AP1:NumberOfDays::content"]</arg>
+<arg>31</arg>
+</arguments>
+<msg timestamp="20180605 11:33:52.888" level="INFO">Typing text '31' into text field 'xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:1:AP1:NumberOfDays::content"]'</msg>
+<status status="PASS" endtime="20180605 11:33:53.112" starttime="20180605 11:33:52.887"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:33:53.112" starttime="20180605 11:33:52.834"></status>
+</kw>
+<kw name="Enter Description" library="ExpensePage">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:1:AP1:Description::content"]</arg>
+<arg>Monthly internet charges</arg>
+</arguments>
+<msg timestamp="20180605 11:33:53.114" level="INFO">Typing text 'Monthly internet charges' into text field 'xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:1:AP1:Description::content"]'</msg>
+<status status="PASS" endtime="20180605 11:33:53.455" starttime="20180605 11:33:53.113"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:33:53.455" starttime="20180605 11:33:53.112"></status>
+</kw>
+<kw name="Enter Merchant Name" library="ExpensePage">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:1:AP1:MerchantName::content"]</arg>
+<arg>Airtel</arg>
+</arguments>
+<msg timestamp="20180605 11:33:53.457" level="INFO">Typing text 'Airtel' into text field 'xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:1:AP1:MerchantName::content"]'</msg>
+<status status="PASS" endtime="20180605 11:33:53.689" starttime="20180605 11:33:53.456"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20180605 11:33:58.690" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" endtime="20180605 11:33:58.690" starttime="20180605 11:33:53.690"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:33:58.691" starttime="20180605 11:33:53.455"></status>
+</kw>
+<kw name="Pick Project Id From Dropdown" library="ExpensePage">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>6s</arg>
+</arguments>
+<msg timestamp="20180605 11:34:04.694" level="INFO">Slept 6 seconds</msg>
+<status status="PASS" endtime="20180605 11:34:04.694" starttime="20180605 11:33:58.693"></status>
+</kw>
+<kw name="Select From List By Label" library="Selenium2Library">
+<doc>Selects `*labels` from list identified by `locator`</doc>
+<arguments>
+<arg>xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:1:AP1:dff_ExpenseDffVOIteratorprojectIdInternetCharges::content"]</arg>
+<arg>Concentrix</arg>
+</arguments>
+<msg timestamp="20180605 11:34:04.696" level="INFO">Selecting label(s) 'Concentrix' from list 'xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:1:AP1:dff_ExpenseDffVOIteratorprojectIdInternetCharges::content"]'.</msg>
+<status status="PASS" endtime="20180605 11:34:04.953" starttime="20180605 11:34:04.695"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20180605 11:34:09.954" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" endtime="20180605 11:34:09.954" starttime="20180605 11:34:04.953"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:34:09.954" starttime="20180605 11:33:58.692"></status>
+</kw>
+<kw name="Pick Unit From Dropdown" library="ExpensePage">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>4s</arg>
+</arguments>
+<msg timestamp="20180605 11:34:13.957" level="INFO">Slept 4 seconds</msg>
+<status status="PASS" endtime="20180605 11:34:13.957" starttime="20180605 11:34:09.957"></status>
+</kw>
+<kw name="Select From List By Label" library="Selenium2Library">
+<doc>Selects `*labels` from list identified by `locator`</doc>
+<arguments>
+<arg>xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:1:AP1:dff_ExpenseDffVOIteratorunitInternetCharges::content"]</arg>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20180605 11:34:13.959" level="INFO">Selecting label(s) '2' from list 'xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:1:AP1:dff_ExpenseDffVOIteratorunitInternetCharges::content"]'.</msg>
+<status status="PASS" endtime="20180605 11:34:14.224" starttime="20180605 11:34:13.958"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:34:14.224" starttime="20180605 11:34:09.955"></status>
+</kw>
+<kw name="Pick City From Dropdown" library="ExpensePage">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20180605 11:34:19.226" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" endtime="20180605 11:34:19.226" starttime="20180605 11:34:14.225"></status>
+</kw>
+<kw name="Select From List By Label" library="Selenium2Library">
+<doc>Selects `*labels` from list identified by `locator`</doc>
+<arguments>
+<arg>xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:1:AP1:dff_ExpenseDffVOIteratorcityInternetCharges::content"]</arg>
+<arg>New Delhi</arg>
+</arguments>
+<msg timestamp="20180605 11:34:19.228" level="INFO">Selecting label(s) 'New Delhi' from list 'xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:1:AP1:dff_ExpenseDffVOIteratorcityInternetCharges::content"]'.</msg>
+<status status="PASS" endtime="20180605 11:34:19.489" starttime="20180605 11:34:19.227"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:34:19.490" starttime="20180605 11:34:14.225"></status>
+</kw>
+<kw name="Take Screenshot" library="CommonWeb">
+<arguments>
+<arg>ItemDetail</arg>
+</arguments>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20180605 11:34:21.492" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20180605 11:34:21.492" starttime="20180605 11:34:19.491"></status>
+</kw>
+<kw name="Fetch Current Date" library="CommonWeb">
+<arguments>
+<arg>-%m-%d-%Y-%H-%M-%S</arg>
+</arguments>
+<assign>
+<var>${x}</var>
+</assign>
+<kw name="Get Current Date" library="DateTime">
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<arguments>
+<arg>result_format=${format}</arg>
+</arguments>
+<assign>
+<var>${x}</var>
+</assign>
+<msg timestamp="20180605 11:34:21.494" level="INFO">${x} = -06-05-2018-11-34-21</msg>
+<status status="PASS" endtime="20180605 11:34:21.494" starttime="20180605 11:34:21.493"></status>
+</kw>
+<msg timestamp="20180605 11:34:21.494" level="INFO">${x} = -06-05-2018-11-34-21</msg>
+<status status="PASS" endtime="20180605 11:34:21.495" starttime="20180605 11:34:21.492"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${fname}</arg>
+<arg>${x}</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20180605 11:34:21.495" level="INFO">${name} = ItemDetail -06-05-2018-11-34-21</msg>
+<status status="PASS" endtime="20180605 11:34:21.496" starttime="20180605 11:34:21.495"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${name}</arg>
+<arg>.png</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20180605 11:34:21.496" level="INFO">${name} = ItemDetail -06-05-2018-11-34-21 .png</msg>
+<status status="PASS" endtime="20180605 11:34:21.497" starttime="20180605 11:34:21.496"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+<arg>filename=${OUTPUTDIR}/${name}</arg>
+</arguments>
+<msg timestamp="20180605 11:34:21.849" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ItemDetail%20-06-05-2018-11-34-21%20.png"&gt;&lt;img src="ItemDetail%20-06-05-2018-11-34-21%20.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180605 11:34:21.849" starttime="20180605 11:34:21.497"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:34:21.849" starttime="20180605 11:34:19.490"></status>
+</kw>
+<kw name="Click Save &amp; Close" library="ExpensePage">
+<kw name="Wait Dynamically For An Element And Then Click" library="CommonWeb">
+<arguments>
+<arg>xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:1:AP1:SaveAndCloseButton"]</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>15</arg>
+</arguments>
+<status status="PASS" endtime="20180605 11:34:21.887" starttime="20180605 11:34:21.852"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<msg timestamp="20180605 11:34:21.887" level="INFO">Clicking element 'xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:1:AP1:SaveAndCloseButton"]'.</msg>
+<status status="PASS" endtime="20180605 11:34:22.069" starttime="20180605 11:34:21.887"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:34:22.069" starttime="20180605 11:34:21.850"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:34:22.069" starttime="20180605 11:34:21.849"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:34:22.070" starttime="20180605 11:33:12.505"></status>
+</kw>
+<kw name="Create An Expense Report" library="CreateExpenseApp">
+<kw name="Find And Click Expense Item" library="ExpensePage">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20180605 11:34:27.072" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" endtime="20180605 11:34:27.072" starttime="20180605 11:34:22.071"></status>
+</kw>
+<kw name="Wait Dynamically For An Element And Then Click" library="CommonWeb">
+<arguments>
+<arg>xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:_FOTsr1:0:pt0:pt1:r1:0:ITPdtl:0:lv3:0:listItem3"]</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>15</arg>
+</arguments>
+<status status="PASS" endtime="20180605 11:34:27.127" starttime="20180605 11:34:27.074"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<msg timestamp="20180605 11:34:27.128" level="INFO">Clicking element 'xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:_FOTsr1:0:pt0:pt1:r1:0:ITPdtl:0:lv3:0:listItem3"]'.</msg>
+<status status="PASS" endtime="20180605 11:34:27.287" starttime="20180605 11:34:27.127"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:34:27.287" starttime="20180605 11:34:27.073"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:34:27.287" starttime="20180605 11:34:22.071"></status>
+</kw>
+<kw name="Take Screenshot" library="CommonWeb">
+<arguments>
+<arg>ExpenseSelection</arg>
+</arguments>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20180605 11:34:29.288" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20180605 11:34:29.288" starttime="20180605 11:34:27.288"></status>
+</kw>
+<kw name="Fetch Current Date" library="CommonWeb">
+<arguments>
+<arg>-%m-%d-%Y-%H-%M-%S</arg>
+</arguments>
+<assign>
+<var>${x}</var>
+</assign>
+<kw name="Get Current Date" library="DateTime">
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<arguments>
+<arg>result_format=${format}</arg>
+</arguments>
+<assign>
+<var>${x}</var>
+</assign>
+<msg timestamp="20180605 11:34:29.291" level="INFO">${x} = -06-05-2018-11-34-29</msg>
+<status status="PASS" endtime="20180605 11:34:29.291" starttime="20180605 11:34:29.290"></status>
+</kw>
+<msg timestamp="20180605 11:34:29.292" level="INFO">${x} = -06-05-2018-11-34-29</msg>
+<status status="PASS" endtime="20180605 11:34:29.292" starttime="20180605 11:34:29.289"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${fname}</arg>
+<arg>${x}</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20180605 11:34:29.294" level="INFO">${name} = ExpenseSelection -06-05-2018-11-34-29</msg>
+<status status="PASS" endtime="20180605 11:34:29.294" starttime="20180605 11:34:29.293"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${name}</arg>
+<arg>.png</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20180605 11:34:29.296" level="INFO">${name} = ExpenseSelection -06-05-2018-11-34-29 .png</msg>
+<status status="PASS" endtime="20180605 11:34:29.296" starttime="20180605 11:34:29.295"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+<arg>filename=${OUTPUTDIR}/${name}</arg>
+</arguments>
+<msg timestamp="20180605 11:34:29.653" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ExpenseSelection%20-06-05-2018-11-34-29%20.png"&gt;&lt;img src="ExpenseSelection%20-06-05-2018-11-34-29%20.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180605 11:34:29.653" starttime="20180605 11:34:29.297"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:34:29.653" starttime="20180605 11:34:27.287"></status>
+</kw>
+<kw name="Click Add To Report" library="ExpensePage">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20180605 11:34:32.655" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20180605 11:34:32.655" starttime="20180605 11:34:29.654"></status>
+</kw>
+<kw name="Wait Dynamically For An Element And Then Click" library="CommonWeb">
+<arguments>
+<arg>xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:_FOTsr1:0:pt0:pt1:r1:0:ITPdtl:0:commandToolbarButton4"]/table/tbody/tr/td[1]/a</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>15</arg>
+</arguments>
+<status status="PASS" endtime="20180605 11:34:32.708" starttime="20180605 11:34:32.657"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<msg timestamp="20180605 11:34:32.709" level="INFO">Clicking element 'xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:_FOTsr1:0:pt0:pt1:r1:0:ITPdtl:0:commandToolbarButton4"]/table/tbody/tr/td[1]/a'.</msg>
+<status status="PASS" endtime="20180605 11:34:32.879" starttime="20180605 11:34:32.708"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:34:32.879" starttime="20180605 11:34:32.656"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:34:32.879" starttime="20180605 11:34:29.654"></status>
+</kw>
+<kw name="Take Screenshot" library="CommonWeb">
+<arguments>
+<arg>ReportMakingPage</arg>
+</arguments>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20180605 11:34:34.880" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20180605 11:34:34.880" starttime="20180605 11:34:32.880"></status>
+</kw>
+<kw name="Fetch Current Date" library="CommonWeb">
+<arguments>
+<arg>-%m-%d-%Y-%H-%M-%S</arg>
+</arguments>
+<assign>
+<var>${x}</var>
+</assign>
+<kw name="Get Current Date" library="DateTime">
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<arguments>
+<arg>result_format=${format}</arg>
+</arguments>
+<assign>
+<var>${x}</var>
+</assign>
+<msg timestamp="20180605 11:34:34.883" level="INFO">${x} = -06-05-2018-11-34-34</msg>
+<status status="PASS" endtime="20180605 11:34:34.883" starttime="20180605 11:34:34.882"></status>
+</kw>
+<msg timestamp="20180605 11:34:34.884" level="INFO">${x} = -06-05-2018-11-34-34</msg>
+<status status="PASS" endtime="20180605 11:34:34.884" starttime="20180605 11:34:34.881"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${fname}</arg>
+<arg>${x}</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20180605 11:34:34.886" level="INFO">${name} = ReportMakingPage -06-05-2018-11-34-34</msg>
+<status status="PASS" endtime="20180605 11:34:34.886" starttime="20180605 11:34:34.885"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${name}</arg>
+<arg>.png</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20180605 11:34:34.888" level="INFO">${name} = ReportMakingPage -06-05-2018-11-34-34 .png</msg>
+<status status="PASS" endtime="20180605 11:34:34.888" starttime="20180605 11:34:34.887"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+<arg>filename=${OUTPUTDIR}/${name}</arg>
+</arguments>
+<msg timestamp="20180605 11:34:35.255" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ReportMakingPage%20-06-05-2018-11-34-34%20.png"&gt;&lt;img src="ReportMakingPage%20-06-05-2018-11-34-34%20.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180605 11:34:35.256" starttime="20180605 11:34:34.889"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:34:35.256" starttime="20180605 11:34:32.879"></status>
+</kw>
+<kw name="Input Purpose" library="ExpensePage">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20180605 11:34:40.257" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" endtime="20180605 11:34:40.257" starttime="20180605 11:34:35.257"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:2:AP1:it1::content"]</arg>
+<arg>Internet Charges Reimbursement</arg>
+</arguments>
+<msg timestamp="20180605 11:34:40.258" level="INFO">Typing text 'Internet Charges Reimbursement' into text field 'xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:2:AP1:it1::content"]'</msg>
+<status status="PASS" endtime="20180605 11:34:40.658" starttime="20180605 11:34:40.258"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:34:40.658" starttime="20180605 11:34:35.256"></status>
+</kw>
+<kw name="Input ManagerName" library="ExpensePage">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20180605 11:34:43.659" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20180605 11:34:43.659" starttime="20180605 11:34:40.659"></status>
+</kw>
+<kw name="Select From List By Label" library="Selenium2Library">
+<doc>Selects `*labels` from list identified by `locator`</doc>
+<arguments>
+<arg>xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:2:AP1:df1G_ExpenseHeaderDffVOIteratormanagerName__FLEX_EMPTY::content"]</arg>
+<arg>Anirban Chaudhuri</arg>
+</arguments>
+<msg timestamp="20180605 11:34:43.661" level="INFO">Selecting label(s) 'Anirban Chaudhuri' from list 'xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:2:AP1:df1G_ExpenseHeaderDffVOIteratormanagerName__FLEX_EMPTY::content"]'.</msg>
+<status status="PASS" endtime="20180605 11:34:43.914" starttime="20180605 11:34:43.660"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>4s</arg>
+</arguments>
+<msg timestamp="20180605 11:34:47.916" level="INFO">Slept 4 seconds</msg>
+<status status="PASS" endtime="20180605 11:34:47.916" starttime="20180605 11:34:43.915"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:34:47.916" starttime="20180605 11:34:40.658"></status>
+</kw>
+<kw name="Take Screenshot" library="CommonWeb">
+<arguments>
+<arg>ReportPageAfterInput</arg>
+</arguments>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20180605 11:34:49.917" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20180605 11:34:49.917" starttime="20180605 11:34:47.917"></status>
+</kw>
+<kw name="Fetch Current Date" library="CommonWeb">
+<arguments>
+<arg>-%m-%d-%Y-%H-%M-%S</arg>
+</arguments>
+<assign>
+<var>${x}</var>
+</assign>
+<kw name="Get Current Date" library="DateTime">
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<arguments>
+<arg>result_format=${format}</arg>
+</arguments>
+<assign>
+<var>${x}</var>
+</assign>
+<msg timestamp="20180605 11:34:49.920" level="INFO">${x} = -06-05-2018-11-34-49</msg>
+<status status="PASS" endtime="20180605 11:34:49.920" starttime="20180605 11:34:49.919"></status>
+</kw>
+<msg timestamp="20180605 11:34:49.921" level="INFO">${x} = -06-05-2018-11-34-49</msg>
+<status status="PASS" endtime="20180605 11:34:49.921" starttime="20180605 11:34:49.918"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${fname}</arg>
+<arg>${x}</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20180605 11:34:49.923" level="INFO">${name} = ReportPageAfterInput -06-05-2018-11-34-49</msg>
+<status status="PASS" endtime="20180605 11:34:49.923" starttime="20180605 11:34:49.922"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${name}</arg>
+<arg>.png</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20180605 11:34:49.925" level="INFO">${name} = ReportPageAfterInput -06-05-2018-11-34-49 .png</msg>
+<status status="PASS" endtime="20180605 11:34:49.925" starttime="20180605 11:34:49.923"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+<arg>filename=${OUTPUTDIR}/${name}</arg>
+</arguments>
+<msg timestamp="20180605 11:34:50.273" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ReportPageAfterInput%20-06-05-2018-11-34-49%20.png"&gt;&lt;img src="ReportPageAfterInput%20-06-05-2018-11-34-49%20.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180605 11:34:50.273" starttime="20180605 11:34:49.925"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:34:50.273" starttime="20180605 11:34:47.916"></status>
+</kw>
+<kw name="Click Submit" library="ExpensePage">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20180605 11:34:53.274" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20180605 11:34:53.274" starttime="20180605 11:34:50.274"></status>
+</kw>
+<kw name="Wait Dynamically For An Element And Then Click" library="CommonWeb">
+<arguments>
+<arg>xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:2:AP1:ctb2"]/table/tbody/tr/td[1]/a</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>15</arg>
+</arguments>
+<status status="PASS" endtime="20180605 11:34:53.310" starttime="20180605 11:34:53.276"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<msg timestamp="20180605 11:34:53.310" level="INFO">Clicking element 'xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:2:AP1:ctb2"]/table/tbody/tr/td[1]/a'.</msg>
+<status status="PASS" endtime="20180605 11:34:53.457" starttime="20180605 11:34:53.310"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:34:53.457" starttime="20180605 11:34:53.275"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>4s</arg>
+</arguments>
+<msg timestamp="20180605 11:34:57.458" level="INFO">Slept 4 seconds</msg>
+<status status="PASS" endtime="20180605 11:34:57.458" starttime="20180605 11:34:53.458"></status>
+</kw>
+<kw name="Take Screenshot" library="CommonWeb">
+<arguments>
+<arg>AfterSubmit</arg>
+</arguments>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20180605 11:34:59.460" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20180605 11:34:59.460" starttime="20180605 11:34:57.459"></status>
+</kw>
+<kw name="Fetch Current Date" library="CommonWeb">
+<arguments>
+<arg>-%m-%d-%Y-%H-%M-%S</arg>
+</arguments>
+<assign>
+<var>${x}</var>
+</assign>
+<kw name="Get Current Date" library="DateTime">
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<arguments>
+<arg>result_format=${format}</arg>
+</arguments>
+<assign>
+<var>${x}</var>
+</assign>
+<msg timestamp="20180605 11:34:59.464" level="INFO">${x} = -06-05-2018-11-34-59</msg>
+<status status="PASS" endtime="20180605 11:34:59.464" starttime="20180605 11:34:59.462"></status>
+</kw>
+<msg timestamp="20180605 11:34:59.464" level="INFO">${x} = -06-05-2018-11-34-59</msg>
+<status status="PASS" endtime="20180605 11:34:59.465" starttime="20180605 11:34:59.460"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${fname}</arg>
+<arg>${x}</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20180605 11:34:59.466" level="INFO">${name} = AfterSubmit -06-05-2018-11-34-59</msg>
+<status status="PASS" endtime="20180605 11:34:59.467" starttime="20180605 11:34:59.465"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${name}</arg>
+<arg>.png</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20180605 11:34:59.468" level="INFO">${name} = AfterSubmit -06-05-2018-11-34-59 .png</msg>
+<status status="PASS" endtime="20180605 11:34:59.468" starttime="20180605 11:34:59.467"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+<arg>filename=${OUTPUTDIR}/${name}</arg>
+</arguments>
+<msg timestamp="20180605 11:34:59.806" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="AfterSubmit%20-06-05-2018-11-34-59%20.png"&gt;&lt;img src="AfterSubmit%20-06-05-2018-11-34-59%20.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180605 11:34:59.807" starttime="20180605 11:34:59.468"></status>
+</kw>
+<status status="PASS" endtime="20180605 11:34:59.807" starttime="20180605 11:34:57.458"></status>
+</kw>
+<kw name="Wait Dynamically For An Element And Then Click" library="CommonWeb">
+<arguments>
+<arg>xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:1:AP1:OKSubmitDialogButton"]</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>15</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20180605 11:35:15.364" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180605 11:35:15.365" starttime="20180605 11:35:15.019"></status>
+</kw>
+<msg timestamp="20180605 11:35:15.366" level="FAIL">Element 'xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:1:AP1:OKSubmitDialogButton"]' did not appear in 15 seconds</msg>
+<status status="FAIL" endtime="20180605 11:35:15.367" starttime="20180605 11:34:59.808"></status>
+</kw>
+<status status="FAIL" endtime="20180605 11:35:15.367" starttime="20180605 11:34:59.807"></status>
+</kw>
+<status status="FAIL" endtime="20180605 11:35:15.367" starttime="20180605 11:34:50.273"></status>
+</kw>
+<status status="FAIL" endtime="20180605 11:35:15.367" starttime="20180605 11:34:22.070"></status>
+</kw>
+<status status="FAIL" endtime="20180605 11:35:15.368" starttime="20180605 11:32:58.906"></status>
+</kw>
+<status status="FAIL" endtime="20180605 11:35:15.368" starttime="20180605 11:32:58.906"></status>
+</kw>
+<doc>This script is used to login to Orcale HCM</doc>
+<tags>
+<tag>Smoke</tag>
+</tags>
+<status status="FAIL" endtime="20180605 11:35:15.369" critical="yes" starttime="20180605 11:32:45.786">Element 'xpath=//*[@id="_FOpt1:_FOr1:0:_FOSritemNode_my_information_expenses:0:MAnt2:1:AP1:OKSubmitDialogButton"]' did not appear in 15 seconds</status>
+</test>
+<doc>This script is used to create an Expense Report</doc>
+<status status="FAIL" endtime="20180605 11:35:15.372" starttime="20180605 11:32:45.379"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat fail="1" pass="0">Smoke</stat>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="ExpenseCompleteDemo" pass="0">ExpenseCompleteDemo</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
