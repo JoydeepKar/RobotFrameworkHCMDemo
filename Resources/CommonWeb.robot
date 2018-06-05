@@ -8,7 +8,7 @@ Library  ../Lib/jutil.py
 *** Keywords ***
 Wait Dynamically For An Element And Then Click
     [Arguments]  ${locator}
-    wait until page contains element  ${locator}  15
+    wait until page contains element  ${locator}  18
     click element  ${locator}
 Begin Web Test
     open browser  ${URL}  ${BROWESR}

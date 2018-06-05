@@ -21,5 +21,5 @@ Should be able to create an Expense Report
     \  CommonWeb.HCM Login  ${singledata}
     \  CreateItemApp.Create An Item
     \  CreateExpenseApp.Create An Expense Report
-    \  #CommonWeb.HCM Logout
+    \  CommonWeb.HCM Logout
 #pybot -d results tests/TC.robot

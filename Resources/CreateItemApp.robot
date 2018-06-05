@@ -18,5 +18,5 @@ Create An Item
     Pick Project Id From Dropdown
     Pick Unit From Dropdown
     Pick City From Dropdown
-    Take Screenshot  ItemDetail
+    Take Screenshot  ItemDetails
     Click Save & Close
